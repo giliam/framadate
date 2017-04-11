@@ -77,6 +77,12 @@ class Form
     public $results_publicly_visible;
 
     /**
+     * If not null, the columns will be limited in terms of votes
+     * @var int
+     */
+    public $max_votes_column;
+
+    /**
      * List of available choices
      */
     private $choices;

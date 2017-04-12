@@ -80,7 +80,7 @@ class Form
      * If not null, the columns will be limited in terms of votes
      * @var int
      */
-    public $max_votes_column;
+    public $maxVotesColumn;
 
     /**
      * List of available choices

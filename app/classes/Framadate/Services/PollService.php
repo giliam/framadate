@@ -214,6 +214,36 @@ class PollService {
         return $splitted;
     }
 
+    function computeColumnsStatus($slots, $votes, $isDateForm, $maxVotesColumn) {
+        $result = array();
+        foreach ($slots as $slot) {
+            if( !empty($slot->moments) && $isDateForm ) {
+                foreach ($slot->moments as $moment) {
+                    $result[] = 0;
+                }
+            } else {
+                $result[] = 0;
+            }
+        }
+
+        if( $maxVotesColumn > 0 ) {
+            foreach ($votes as $vote) {
+                $choices = str_split($vote->choices);
+                foreach ($choices as $i => $choice) {
+                    if ($choice == 2) {
+                        $result[$i]++;
+                    }
+                }
+            }
+        }
+        
+        foreach( $result as $i => $value ){
+            $result[$i] = $value >= $maxVotesColumn;
+        }
+
+        return $result;
+    }
+
     private function random($length) {
         return Token::getToken($length);
     }

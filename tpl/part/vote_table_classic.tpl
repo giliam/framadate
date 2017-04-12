@@ -155,12 +155,14 @@
                     {foreach $slots as $id=>$slot}
                         <td class="bg-info" headers="C{$id}">
                             <ul class="list-unstyled choice">
+                                {if !$columns_status[$id]}
                                 <li class="yes">
                                     <input type="radio" id="y-choice-{$id}" name="choices[{$id}]" value="2" />
                                     <label class="btn btn-default btn-xs" for="y-choice-{$id}" title="{__('Poll results', 'Vote yes for')|html} {$slot->title|html}">
                                         <i class="glyphicon glyphicon-ok"></i><span class="sr-only">{__('Generic', 'Yes')}</span>
                                     </label>
                                 </li>
+                                {/if}
                                 <li class="ifneedbe">
                                     <input type="radio" id="i-choice-{$id}" name="choices[{$id}]" value="1" />
                                     <label class="btn btn-default btn-xs" for="i-choice-{$id}" title="{__('Poll results', 'Vote ifneedbe for')|html} {$slot->title|html}">

@@ -47,6 +47,7 @@ $message = null;
 $editingVoteId = 0;
 $accessGranted = true;
 $resultPubliclyVisible = true;
+$maxVotesColumn = 0;
 $slots = array();
 $votes = array();
 $comments = array();
@@ -104,6 +105,8 @@ if (!is_null($poll->password_hash)) {
         $message = new Message('danger', __('Password', 'You have to provide a password so you can participate to the poll.'));
     }
 }
+
+$maxVotesColumn = $poll->maxVotesColumn;
 
 // We allow actions only if access is granted
 if ($accessGranted) {

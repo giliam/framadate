@@ -1,0 +1,1 @@
+ALTER TABLE `fd_poll` ADD `maxVotesColumn` INT NOT NULL DEFAULT '0' AFTER `results_publicly_visible` ;

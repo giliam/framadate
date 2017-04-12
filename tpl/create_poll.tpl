@@ -280,9 +280,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="poll_maxVotesColumn" class="col-sm-4 control-label">{__('Step 1', 'Max number of votes per column')}</label>
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <label for="poll_maxVotesColumn" class="col-sm-4 control-label">{__('Step 1', 'Max number of votes per column')}</label>
 
-                        <div class="col-sm-8">
                             <input id="poll_maxVotesColumn" type="number" min="0" name="maxVotesColumn" class="form-control" value="{$poll_maxVotesColumn|html}"/>
                         </div>
                     </div>

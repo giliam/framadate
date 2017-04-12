@@ -64,6 +64,7 @@ if ($goToStep2) {
     $editable = $inputService->filterEditable($_POST['editable']);
     $receiveNewVotes = isset($_POST['receiveNewVotes']) ? $inputService->filterBoolean($_POST['receiveNewVotes']) : false;
     $receiveNewComments = isset($_POST['receiveNewComments']) ? $inputService->filterBoolean($_POST['receiveNewComments']) : false;
+    $maxVotesColumn = isset($_POST['maxVotesColumn']) ? $inputService->filterPositiveInteger($_POST['maxVotesColumn']) : 0;
     $hidden = isset($_POST['hidden']) ? $inputService->filterBoolean($_POST['hidden']) : false;
     $use_password = filter_input(INPUT_POST, 'use_password', FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => BOOLEAN_REGEX]]);
     $password = isset($_POST['password']) ? $_POST['password'] : null;
@@ -88,6 +89,7 @@ if ($goToStep2) {
     $_SESSION['form']->editable = $editable;
     $_SESSION['form']->receiveNewVotes = $receiveNewVotes;
     $_SESSION['form']->receiveNewComments = $receiveNewComments;
+    $_SESSION['form']->maxVotesColumn = $maxVotesColumn;
     $_SESSION['form']->hidden = $hidden;
     $_SESSION['form']->use_password = ($use_password !== null);
     $_SESSION['form']->results_publicly_visible = ($results_publicly_visible !== null);
@@ -278,6 +280,7 @@ $smarty->assign('poll_mail', Utils::fromPostOrDefault('mail', $_SESSION['form']-
 $smarty->assign('poll_editable', Utils::fromPostOrDefault('editable', $_SESSION['form']->editable));
 $smarty->assign('poll_receiveNewVotes', Utils::fromPostOrDefault('receiveNewVotes', $_SESSION['form']->receiveNewVotes));
 $smarty->assign('poll_receiveNewComments', Utils::fromPostOrDefault('receiveNewComments', $_SESSION['form']->receiveNewComments));
+$smarty->assign('poll_maxVotesColumn', Utils::fromPostOrDefault('maxVotesColumn', $_SESSION['form']->maxVotesColumn));
 $smarty->assign('poll_hidden', Utils::fromPostOrDefault('hidden', $_SESSION['form']->hidden));
 $smarty->assign('poll_use_password', Utils::fromPostOrDefault('use_password', $_SESSION['form']->use_password));
 $smarty->assign('poll_results_publicly_visible', Utils::fromPostOrDefault('results_publicly_visible', $_SESSION['form']->results_publicly_visible));

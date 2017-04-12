@@ -96,6 +96,11 @@ class InputService {
         return $dDate->format('Y-m-d H:i:s');
     }
 
+    public function filterPositiveInteger($input) {
+        $value = intval($input);
+        return max(0, $value);
+    }
+
     /**
      * Return the value if it's not blank.
      *

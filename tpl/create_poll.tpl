@@ -279,21 +279,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group {$errors['max_votes_column']['class']}">
-                        <label for="poll_max_votes_column" class="col-sm-4 control-label">{__('Step 1', 'Max number of votes per column')}</label>
+                    <div class="form-group">
+                        <label for="poll_maxVotesColumn" class="col-sm-4 control-label">{__('Step 1', 'Max number of votes per column')}</label>
 
                         <div class="col-sm-8">
-                            <input id="poll_max_votes_column" type="number" min="0" name="max_votes_column" class="form-control" {$errors['max_votes_column']['aria']}
-                                   value="{$poll_max_votes_column|html}"/>
+                            <input id="poll_maxVotesColumn" type="number" min="0" name="maxVotesColumn" class="form-control" value="{$poll_maxVotesColumn|html}"/>
                         </div>
                     </div>
-                    {if !empty($errors['max_votes_column']['msg'])}
-                        <div class="alert alert-danger">
-                            <p id="poll_max_votes_column_error">
-                                {$errors['max_votes_column']['msg']}
-                            </p>
-                        </div>
-                    {/if}
                 </div>
 
                 <p class="text-right">

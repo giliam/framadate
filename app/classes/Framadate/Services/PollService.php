@@ -238,7 +238,7 @@ class PollService {
         }
         
         foreach( $result as $i => $value ){
-            $result[$i] = $value >= $maxVotesColumn;
+            $result[$i] = $maxVotesColumn && $value >= $maxVotesColumn;
         }
 
         return $result;

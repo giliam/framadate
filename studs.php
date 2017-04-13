@@ -156,6 +156,10 @@ if ($accessGranted) {
             }
         }
     } elseif (isset($_POST['save'])) { // Add a new vote
+        $votes = $pollService->allVotesByPollId($poll_id);
+        $slots = $pollService->allSlotsByPoll($poll);
+        $splittedSlots = $poll->format === 'D' ? $pollService->splitSlots($slots) : $slots;
+
         $name = $inputService->filterName($_POST['name']);
         $choices = $inputService->filterArray($_POST['choices'], FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => CHOICE_REGEX]]);
         $slots_hash = $inputService->filterMD5($_POST['control']);
@@ -165,6 +169,14 @@ if ($accessGranted) {
         }
         if (count($choices) != count($_POST['choices'])) {
             $message = new Message('danger', __('Error', 'There is a problem with your choices'));
+        }
+
+
+        $columnsStatus = $pollService->computeColumnsStatus($splittedSlots, $votes, $poll->format === 'D', $maxVotesColumn);
+        foreach ($columnsStatus as $i => $status) {
+            if (intval($choices[$i]) == 2 && $status && $maxVotesColumn > 0){
+                $message = new Message('danger', __f('Error', 'One of your choice is already full (max: %s)', $maxVotesColumn));
+            }
         }
 
         if ($message == null) {

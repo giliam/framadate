@@ -47,6 +47,12 @@ class Form
     public $receiveNewComments;
 
     /**
+     * If true, the poll becomes a "one choice" poll.
+     * @var boolean
+     */
+    public $onlyOneChoice;
+
+    /**
      * If true, only the poll maker can see the poll's results
      * @var boolean
      */

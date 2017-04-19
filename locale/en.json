@@ -233,6 +233,7 @@
         "Customize the URL": "Customize the URL",
         "Poll id rules": "The identifier can contain letters, numbers and dashes \"-\".",
         "Poll id warning": "By defining an identifier that can facilitate access to the poll for unwanted people. It is recommended to protect it with a password.",
+        "Accept only one answer per person": "Accept only one answer per person",
         "Votes cannot be modified": "Votes cannot be modified",
         "All voters can modify any vote": "All voters can modify any vote",
         "Voters can modify their vote themselves": "Voters can modify their vote themselves",

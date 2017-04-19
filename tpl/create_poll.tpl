@@ -279,6 +279,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="poll_onlyOneChoice" class="col-sm-4 control-label">
+                            {__('Step 1', 'One-choice poll')}
+                        </label>
+
+                        <div class="col-sm-8">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="onlyOneChoice" {if $poll_onlyOneChoice}checked{/if}
+                                           id="onlyOneChoice">
+                                    {__('Step 1', "Accept only one answer per person")}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <p class="text-right">

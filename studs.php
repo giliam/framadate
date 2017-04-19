@@ -229,6 +229,7 @@ $smarty->assign('votes', $pollService->splitVotes($votes));
 $smarty->assign('best_choices', $pollService->computeBestChoices($votes));
 $smarty->assign('comments', $comments);
 $smarty->assign('editingVoteId', $editingVoteId);
+$smarty->assign('onlyOneChoice', $poll->onlyOneChoice);
 $smarty->assign('message', $message);
 $smarty->assign('admin', false);
 $smarty->assign('hidden', $poll->hidden);
